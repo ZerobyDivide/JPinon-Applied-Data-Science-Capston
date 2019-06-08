@@ -1,1 +1,1 @@
-# JPinon-Applied-Data-Science-Capston
+# Coursera_Capstone
