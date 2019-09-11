@@ -1,0 +1,11 @@
+\select@language {english}
+\contentsline {figure}{\numberline {1}{\ignorespaces \itshape First part of the dataframe listing all French restaurants in Nagoya}}{3}{figure.caption.2}
+\contentsline {figure}{\numberline {2}{\ignorespaces \itshape First part of the dataframe listing all 'short stay' venues in Nagoya}}{4}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces \itshape Division of Nagoya into a 30*30 grid}}{5}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces \itshape Distribution of the number of restaurants around French restaurants}}{10}{figure.caption.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces \itshape Distribution of the number of transport venues around French restaurants}}{10}{figure.caption.6}
+\contentsline {figure}{\numberline {6}{\ignorespaces \itshape Distribution of the number of long stay venues around French restaurants}}{11}{figure.caption.7}
+\contentsline {figure}{\numberline {7}{\ignorespaces \itshape Distribution of the number of short stay venues around French restaurants}}{11}{figure.caption.8}
+\contentsline {figure}{\numberline {8}{\ignorespaces \itshape Grid of Nagoya showing true positives, true negatives, false positives and false negatives on the training set}}{12}{figure.caption.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces \itshape Grid of Nagoya showing true positives, true negatives, false positives and false negatives on the test set}}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {10}{\ignorespaces \itshape Grid of Nagoya showing true positives, true negatives, false positives and false negatives on the complete set}}{14}{figure.caption.11}

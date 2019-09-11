@@ -1,0 +1,193 @@
+\documentclass[12pt,a4paper]{article}
+
+% Options possibles : 10pt, 11pt, 12pt (taille de la fonte)
+%                     oneside, twoside (recto simple, recto-verso)
+%                     draft, final (stade de développement)
+
+\usepackage[utf8]{inputenc}   % LaTeX, comprends les accents !
+\usepackage[T1]{fontenc}      % Police contenant les caractères français
+\usepackage[french,english]{babel}  % Placez ici une liste de langues, la
+                              % dernière étant la langue principale
+\usepackage{textcomp}		  % pour le caractère ° and ~     
+\usepackage[normalem]{ulem}   % pour rayer le texte
+\usepackage{textgreek}		  % lettres grecs sans avoir à enter en math mode
+
+%vector font
+%\usepackage{cm-super}
+ 
+%nested enumerate
+\usepackage{enumitem}
+
+%Abstract > Summary
+\addto{\captionsenglish}{\renewcommand{\abstractname}{English and French abstract}}
+
+%Figures                    
+\usepackage{graphicx}
+\graphicspath{ {Figures/} }
+\usepackage{float} %To prevent floating figure
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=3.0cm,bottom=3.0cm]{geometry}% Réduire les marges
+\usepackage{titlesec} % Modifier le style des sections et chapitres
+
+%Caption
+\newcommand{\jcaption}[2]{\itshape \caption[#1]{\itshape #1#2}}
+
+%Tableau
+\usepackage{array,multirow,tabularx} % For table
+\usepackage{slashbox} % Pour couper les tableaux avec une ligne diagonale
+\usepackage[font=small,labelfont=bf]{caption}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%paragraph
+\setlength{\parindent}{4em}
+\usepackage{indentfirst}
+\setlength{\headheight}{15pt}
+ 
+%list
+\newenvironment{myitemize}
+{ \begin{itemize}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt} }
+{ \end{itemize} }
+
+
+\newenvironment{myenumerate}
+{ \begin{enumerate}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt} }
+{ \end{enumerate} }
+ 
+%Référence
+\usepackage{hyperref }
+%Référence perso
+\newcommand{\refperso}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+%tilde
+\newcommand{\tildep}[0]{\raise.17ex\hbox{$\scriptstyle\sim$}}
+
+\usepackage{fancyhdr} % for use of \pageref{LastPage}
+\pagestyle{fancy}
+
+% Modifie le style par défaut
+\fancypagestyle{IHA-fancy-style}{%
+  \fancyhf{}% Clear header and footer
+%  \fancyhead[L]{\leftmark}
+%  \fancyhead[R]{\rightmark}
+  \fancyhead[C]{\leftmark}
+  \fancyfoot[L]{Jonhathan Pinon}
+  \fancyfoot[R]{Page : \thepage}% Custom footer
+  \renewcommand{\headrulewidth}{0.4pt}% Line at the header visible
+  \renewcommand{\footrulewidth}{0.4pt}% Line at the footer visible
+}
+
+% Redefine the plain page style
+\fancypagestyle{plain}{%
+  \fancyhf{}% Clear header and footer
+  \fancyhead[C]{\leftmark}
+  \fancyfoot[L]{Jonhathan Pinon}
+  \fancyfoot[R]{Page : \thepage}% Custom footer
+  \renewcommand{\headrulewidth}{0.4pt}% Line at the header invisible
+  \renewcommand{\footrulewidth}{0.4pt}% Line at the footer visible
+}
+
+%Formules mathématiques centrées avec espace
+\newenvironment{sp_equation}
+{ \begin{equation}
+ }
+{ \end{equation} \smallskip }
+
+%Appendix
+\usepackage[titletoc,toc,page]{appendix}
+%\renewcommand{\setthesubsection}{\Alph{section}}
+
+%Scientific form in text mode
+\newcommand{\sfnb}[2]{#1 $ \times$ 10 \textsuperscript{#2}}
+
+%Math
+\usepackage{amsmath,amssymb,mathrsfs}
+
+\sloppy                       % Ne pas faire déborder les lignes dans la marge
+
+\begin{document}
+%
+
+\begin{titlepage}
+
+\vspace{5 cm}
+
+\begin{center}
+
+\Huge Final report for the peer-graded assignment of capstone project
+
+\vspace{3 cm}
+
+\Huge \textbf{Identifying the best places to open a French restaurant in Nagoya}
+
+\vspace{2 cm}
+
+\Large \textbf{by Jonhathan Pinon} \\
+
+\vspace{2 cm}
+
+
+\large 07/07/2019
+
+
+\end{center}
+
+\end{titlepage}
+
+\section{Introduction}
+
+\subsection{Background}
+
+
+Nagoya is one of the largest cities in Japan. It has a population of over 2 million and is situated in the middle-eastern part of Japan. In Japan, French cuisine is relatively popular. According to Foursquare data, there are about a hundred of French restaurants in Nagoya. Supposing that a chain of restaurants specialized in French cooking want to open new French restaurants in Nagoya, where would be the best places? 
+
+\subsection{Problem}
+
+The best place is the place that would attract the most customers. In this report, we define popularity as the number of customers. Thus, we first need to identify, and ideally quantify, which factors are beneficial for attracting customers, and which are not. For example, we can expect the proximity of subway station to substantially increase the popularity. On the other hand, we can expect that similar restaurants would decrease the popularity. Once those factors are identified and quantified, we will draw a map of Nagoya showing the potential popularity index calculated from the above factors. 
+
+\subsection{Interest}
+
+Such a map would obviously be very interesting for any group who wishes to open a restaurant. A restaurant popularity depends on its quality, but the location is still a major factor. To maximize potential income, choosing the place that would potentially attract the most customers is very important.
+
+\section{Data acquisition and cleaning}
+
+\subsection{Data sources}
+
+Foursquare location data will be the only data source. Foursquare provides the position of most restaurants, train stations, subway stations, and other venues in Nagoya. In addition, Foursquare provides stats about each venue such as the rating and the number of likes, which can be used to estimate popularity. Thus, there is no need to use another data source.
+
+\subsection{Methodology and features selection}
+
+Our study has two parts: first we need to identify the factors which tend to increase restaurant popularity. Then we need to apply those factors to compute the map of Nagoya showing the potential popularity (just like a temperature map but with potential popularity instead of temperature).
+Regarding the first part, we can qualitatively estimate what tend to increase or decrease the popularity of a restaurant. As cited above, we can suppose that the proximity of public transports increase popularity. On the other hand, we can expect that similar restaurants nearby decreases the popularity. However, to provide a better map, we need to quantify the impact of those factors. To do that, we get the list of all French restaurants in Nagoya, and their details. For each French restaurant, we get the list of nearby venues, especially other restaurants and public transport venues. 
+Unfortunately, the number of people who went to a restaurant is no longer available using Foursquare data. It makes it very difficult to estimate popularity. There is still a way: we can use the hereNow field. This field gives the number of people currently at the restaurant. By gathering data over the course of several days, and different hours, we can get a good estimatation of the popularity.
+After we know the popularity of each French restaurant, we calculate the impact of the proximity of each venue category on the popularity. In other words, we run a linear regression with:
+•	The popularity as the dependant variable
+•	For the independent variables…:
+o	The proximity of other French restaurants 
+o	The proximity of other European restaurants
+o	The proximity of other restaurants
+o	The proximity of train stations
+o	The proximity of subway stations
+o	And so on for every category available using Foursqure data
+W propose to quantify the proximity by the sum of the inverse of the distances between each venue and each French restaurant, within an one kilometer radius. For example, let us say there is French restaurant named FRA. Let us say there are two restaurants named RESA and RESB. RESA is 400 meters away from FRA. RESB is 800 meters away from FRA. Then the proximity of other restaurants variable is 1/400 + 1/800 = 0.00375. This way of calculing the ‘proximity’ may be modified as the study progresses. 
+Once we have all the coefficients (the impacts of each independent variable on the popularity), we can calculate the potential popularity map for French restaurants in Nagoya. We divide Nagoya in a 1000*1000 grid, and for each sector, we get the nearby venues. Then we apply our model to calculate the popularity of each sector. This is the second and last part of our study.
+
+
+\subsection{Data cleaning}
+
+For our study, we just need the list of venues in Nagoya with their category and position. We also need the number of visits for each French restaurant. There are two dataframes. One dataframe for the list of all venues in Nagoya with their category and position. Another dataframe for the French restaurants: each row has a French restaurant with its popularity and location (latitude, longitude), and the ‘proximity’ of other venues. 
+	We do not expect any missing attribute. Foursquare always provides the position, category and the number of current users. Foursquare may not list all venues in Nagoya, but this is not a problem. We limit our study to all venues listed by Foursquare, which should be more than enough.
+	
+
+
+\section*{References}
+
+
+\end{document}
+
+
